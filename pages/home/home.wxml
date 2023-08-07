@@ -1,2 +1,3 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view>
+    <image src="{{topTheme.entrance_img}}" class="top-theme"></image>
+</view>

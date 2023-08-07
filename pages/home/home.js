@@ -1,18 +1,35 @@
 // pages/home/home.js
+
+import {config} from "../../config/config";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    topTheme:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    wx.request({
+      url:`${config.apiBaseUrl}theme/by/names`,
+      method:'GET',
+      data:{
+        names:'t-1'
+      },
+      header:{
+        appkey:config.appkey
+      },
+      success:res =>  {
+        this.setData({
+          topTheme:res.data[0]
+        })
+      }
+    })
   },
 
   /**
