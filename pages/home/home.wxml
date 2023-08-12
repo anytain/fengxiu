@@ -4,11 +4,15 @@
             indicator-dots="true"
             indicator-active-color="#157658"
             autoplay 
-            circular>
+            circular >
         <block wx:for="{{bannerB.items}}">
             <swiper-item>
                 <image class="swiper" src="{{item.img}}"></image>
             </swiper-item>
         </block>
     </swiper>
+    <s-category-grid grid="{{grid}}"></s-category-grid>
+    <image class="activity" src="{{activityD.entrance_img}}"></image>
+    <s-spu-scorll theme="{{themeE}}" wx:if="{{themeE.online}}" spu-list="{{themeESpu}}"></s-spu-scorll>
+
 </view>

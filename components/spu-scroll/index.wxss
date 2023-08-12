@@ -1,0 +1,14 @@
+.title{
+    width: 692rpx;
+    height: 90rpx;
+}
+.price-unit{
+    font-size: 28rpx !important;
+}
+.price-value{
+    font-size: 32rpx !important;
+}
+.container-a{
+    display: flex;
+    flex-direction: column;
+}
