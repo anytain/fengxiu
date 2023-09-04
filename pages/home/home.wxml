@@ -13,6 +13,12 @@
     </swiper>
     <s-category-grid grid="{{grid}}"></s-category-grid>
     <image class="activity" src="{{activityD.entrance_img}}"></image>
-    <s-spu-scorll theme="{{themeE}}" wx:if="{{themeE.online}}" spu-list="{{themeESpu}}"></s-spu-scorll>
+    <s-spu-scorll  theme="{{themeE}}"
+                  wx:if="{{themeE.online}}"
+                  spu-list="{{themeESpu}}">
+    </s-spu-scorll>
+    <image src="{{themeF.entrance_img}}" class="quality"></image>
+    <s-host-list banner="{{bannerG}}"></s-host-list>
+    <image src="{{themeH.entrance_img}}" class="fashion"></image>
 
 </view>

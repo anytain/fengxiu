@@ -28,8 +28,10 @@ Page({
     async initAllData() {
         const theme = new Theme()
         await theme.getThemes()
-        const themeA = await theme.getHomeLocationA();
-        const themeE = await theme.getHomeLocationE();
+        const themeA =  theme.getHomeLocationA();
+        const themeE =  theme.getHomeLocationE();
+        const themeF =  theme.getHomeLocationF();
+        const themeH =  theme.getHomeLocationH();
         let themeESpu = []
         if(themeE.online){
             const data = await Theme.getHomeLocationnESpu()
@@ -38,15 +40,19 @@ Page({
             }
         }
         const bannerB = await Banner.getHomeLocationB()
+        const bannerG = await Banner.getHomeLocationG();
         const grid = await Category.getGridCategory()
         const activityD = await Activity.getHomeLocationD()
         this.setData({
             themeA,
             bannerB,
+            bannerG,
             grid,
             activityD,
             themeE,
-            themeESpu
+            themeESpu,
+            themeF,
+            themeH
         })
     },
 
