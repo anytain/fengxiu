@@ -1,10 +1,11 @@
 // pages/home/home.js
 
 import {config} from "../../config/config";
-import {Theme} from "../../model/theme";
-import {Banner} from "../../model/banner";
-import {Category} from "../../model/category";
-import {Activity} from "../../model/activity";
+import {Theme} from "../../models/theme";
+import {Banner} from "../../models/banner";
+import {Category} from "../../models/category";
+import {Activity} from "../../models/activity";
+import {SpuPaging} from "../../models/spu-paging";
 
 Page({
 
@@ -16,7 +17,9 @@ Page({
         bannerB: null,
         grid: [],
         activityD: null,
-        themeE: null
+        themeE: null,
+        spuPaging:null,
+        loadingType:'loading'
     },
 
     /**
@@ -24,6 +27,17 @@ Page({
      */
     async onLoad(options) {
         this.initAllData()
+        this.initBottomSpuList()
+    },
+    async initBottomSpuList(){
+        const paging = await SpuPaging.getLatestPaging()
+        this.data.spuPaging = paging;
+        const data = await paging.getMoreData()
+        if(!data){
+            return
+        }
+        //瀑布流内部累加
+        wx.lin.renderWaterFlow(data.items)
     },
     async initAllData() {
         const theme = new Theme()
@@ -94,8 +108,17 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom() {
-
+    async onReachBottom() {
+        const data = await this.data.spuPaging.getMoreData();
+        if(!data){
+            return
+        }
+        wx.lin.renderWaterFlow(data.items)
+        if(!data.moreData){
+            this.setData({
+                loadingType:'end'
+            })
+        }
     },
 
     /**
