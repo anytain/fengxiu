@@ -20,7 +20,9 @@
                      valueSize="28"
                      unitSize="20"
                      autofix
-                     value="{{p.mainPrice(data.price,data.discount_price).price}}"></l-price>
+                     value="{{p.mainPrice(data.price,data.discount_price).price}}">
+
+            </l-price>
             <l-price wx:if="{{p.slashedPrice(data.price,data.discount_price).display}}"
                      deleted
                      color="#999999"

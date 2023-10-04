@@ -8,7 +8,6 @@ Component({
   },
   observers:{
     'banner':function (banner) {
-      console.log("banner")
       if (!banner){
         return
       }

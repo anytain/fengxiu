@@ -21,6 +21,13 @@
           "query": "pid=2",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "无规格",
+          "pathName": "pages/detail/detail",
+          "query": "pid=11",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
