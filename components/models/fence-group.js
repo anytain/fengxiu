@@ -21,19 +21,7 @@ class FenceGroup {
         }
         return this.skuList.find(s=>s.id === defaultSkuId)
     }
-    initFence1(){
-        const matrix = this._createMatrix(this.skuList)
-        const fences = []
-        let currentJ = -1
 
-        matrix.each((element,i,j)=>{
-            if(currentJ!==j){
-                currentJ = j
-               fences[currentJ] =  this._createFence(element)
-            }
-            fences[currentJ].pushValueTitle(element.value)
-        })
-    }
 
     setCellStatusById(cellId,status){
         this.eachCell((cell)=>{
@@ -53,10 +41,19 @@ class FenceGroup {
         AT.forEach(r=>{
             const fence = new Fence(r);
             fence.init()
+            if(this.hasSketchFence()&&this.isSketchFence(fence.id)){
+              fence.setFenceSketch(this.skuList)
+            }
             fences.push(fence)
         })
         this.fences = fences
-
+        console.log(fences)
+    }
+    hasSketchFence(){
+        return this.spu.sketch_spec_id?true:false
+    }
+    isSketchFence(fenceId){
+        return this.spu.sketch_spec_id===fenceId?true:false
     }
 
     eachCell(cb){

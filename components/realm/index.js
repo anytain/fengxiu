@@ -3,13 +3,15 @@ import {FenceGroup} from "../models/fence-group";
 import {Judger} from "../models/judger";
 import {Spu} from "../../models/spu";
 import {Cell} from "../models/cell";
+import {Cart} from "../../models/cart";
 
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    spu:Object
+    spu:Object,
+    orderWay:String
 
   },
 
@@ -22,7 +24,9 @@ Component({
     title:String,
     price:null,
     discountPrice:null,
-    stock:null
+    stock:null,
+    currentSkuCount:Cart.SKU_MIN_COUNT
+
 
   },
   observers:{
@@ -47,6 +51,7 @@ Component({
         noSpec:true
       })
       this.bindSkuData(spu.sku_list[0])
+      this.setStockStatus(spu.sku_list[0].stock,this.data.currentSkuCount)
     },
     processHasSpec(spu){
       const fenceGroup = new FenceGroup(spu)
@@ -56,11 +61,19 @@ Component({
       const defaultSku = fenceGroup.getDefaultSku()
       if(defaultSku){
         this.bindSkuData(defaultSku)
+        this.setStockStatus(defaultSku.stock,this.data.currentSkuCount)
       }else {
         this.bindSpuData()
       }
       this.bindTipData()
       this.bindFenceGroupData(fenceGroup)
+    },
+    triggerSpecEvent(){
+      this.triggerEvent('specchange',{
+        skuIntact:this.data.judger.isSkuIntact(),
+        currentValues:this.data.judger.getCurrentValues(),
+        missingKeys:this.data.judger.getMissingKeys()
+      })
     },
     bindSpuData(){
       const spu = this.properties.spu
@@ -79,7 +92,7 @@ Component({
         title :sku.title,
         price:sku.price,
         discountPrice:sku.discount_price,
-        stock:sku.stock===0?5:sku.stock
+        stock:sku.stock
       })
     },
     bindFenceGroupData(fenceGroup){
@@ -94,6 +107,21 @@ Component({
         missingKeys:this.data.judger.getMissingKeys()
       })
     },
+    setStockStatus(stock,currentCount){
+      this.setData({
+        outStock:this.isOutStock(stock,currentCount)
+      })
+    },
+    onSelectCount(event){
+      this.data.currentSkuCount = event.detail.count
+      if(this.data.judger.isSkuIntact()){
+        const sku = this.data.judger.getDeterminateSku()
+        this.setStockStatus(sku.stock,this.data.currentSkuCount)
+      }
+    },
+    isOutStock(stock,currentCount){
+      return stock<currentCount
+    },
     onCellTap(event){
       const data = event.detail.cell
       const x = event.detail.x;
@@ -106,12 +134,11 @@ Component({
       if(skuIntact){
         const currentSku = judge.getDeterminateSku()
         this.bindSkuData(currentSku)
+        this.setStockStatus(currentSku.stock,this.data.currentSkuCount)
       }
       this.bindTipData()
       this.bindFenceGroupData(judge.fenceGroup)
-      /*this.setData({
-        fences:judge.fenceGroup.fences
-      })*/
+
     }
   }
 })

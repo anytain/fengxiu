@@ -1,6 +1,7 @@
 // pages/detail/detail.js
 import {Spu} from "../../models/spu";
 import date from "../../miniprogram_npm/lin-ui/common/async-validator/validator/date";
+import {ShoppingWay} from "../../core/enum";
 
 Page({
 
@@ -8,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    showRealm:false
   },
 
   /**
@@ -21,7 +22,29 @@ Page({
       spu
     })
   },
+  onGoToHome(event){
+    wx.switchTab({
+      url:`/pages/home/home`
+    })
+  },
+  onGoToCart(event){
+    wx.switchTab({
+      url:`/pages/cart/home`
+    })
+  },
+  onAddToCart(event){
+    this.setData({
+      showRealm:true,
+      orderWay:ShoppingWay.CART
+    })
+  },
+  onBuy(event){
+    this.setData({
+      showRealm:true,
+      orderWay:ShoppingWay.BUY
 
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -25,9 +25,18 @@ class Fence {
             this.cells.push(cell)
         })
     }
-  /*  pushValueTitle(title){
-        this.valueTitles.push(title)
-    }*/
+    setFenceSketch(skuList){
+        this.cells.forEach(c=>{
+            this._setCellSukImg(c,skuList)
+        })
+    }
+    _setCellSukImg(cell,skuList){
+        const  specCode = cell.getCellCode()
+        const matchSku = skuList.find(s=>s.code.includes(specCode))
+        if(matchSku){
+            cell.skuImg = matchSku.img
+        }
+    }
 }
 export {
     Fence
