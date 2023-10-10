@@ -2,6 +2,8 @@
 import {Spu} from "../../models/spu";
 import date from "../../miniprogram_npm/lin-ui/common/async-validator/validator/date";
 import {ShoppingWay} from "../../core/enum";
+import {SaleExplain} from "../../models/sale-explain";
+import {getWindowHeightRpx} from "../../utils/system";
 
 Page({
 
@@ -18,9 +20,21 @@ Page({
   async onLoad(options) {
     const pid = options.pid;
     const spu =await Spu.getDetail(pid);
+    const explain = await SaleExplain.getFixed();
+    const windowHeight = await getWindowHeightRpx()
+    const h = windowHeight - 100
     this.setData({
-      spu
+      spu,
+      explain,
+      h
     })
+  },
+  onShopping(event){
+    const chooseSku = event.detail.sku
+    const skuCount = event.detail.skuCount
+    if (event.detail.orderWay === ShoppingWay.CART){
+
+    }
   },
   onGoToHome(event){
     wx.switchTab({
@@ -30,6 +44,11 @@ Page({
   onGoToCart(event){
     wx.switchTab({
       url:`/pages/cart/home`
+    })
+  },
+  onSpecChange(event){
+    this.setData({
+      specs:event.detail
     })
   },
   onAddToCart(event){

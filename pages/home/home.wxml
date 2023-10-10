@@ -1,5 +1,5 @@
 <l-loadmore show
-            endText="vivi作品"
+            endText="蜗行作品"
             type="{{loadingType}}">
     <view slot="content">
         <image src="{{themeA.entrance_img}}" class="top-theme"></image>

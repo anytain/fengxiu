@@ -20,6 +20,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onCheckThem:function (event){
+      console.log(event)
+      const pid = event.currentTarget.dataset.pid;
+      wx.navigateTo({
+        url:`/pages/detail/detail?pid=${pid}`
+      })
+    }
   }
 })

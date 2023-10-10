@@ -53,7 +53,7 @@ class Paging {
             empty:false,
             items:paging.items,
             moreData:this.moreData,
-            accumulator:[]//计算器
+            accumulator:this.accumulator
         }
     }
     static _moreData(totalPage,pageNum){

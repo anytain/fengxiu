@@ -1,2 +1,34 @@
-<!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class="container">
+    <view class="search-container">
+        <l-button
+                width="710"
+                height="60"
+                icon="research"
+                iconSize="24"
+                iconColor="#C4C9D2"
+                l-class="search-btn"
+                bind:lintap="onGotoSearch"
+                shape="square">
+            搜索商品</l-button>
+    </view>
+    <view class="main">
+        <l-segment placement="left"
+                   height="{{segHeight}}"
+                   activeKey="{{defaultRootId}}"
+                   item-height="90"
+                   width="160"
+                   bind:linchange="onSegChange"
+                   scrollable
+                   l-active-class="segment-item-active"
+                   l-inactive-class="segment-item"
+                   l-line-class="l-seg-line"
+                   even="{{false}}">
+            <block wx:for="{{roots}}" wx:key="index">
+                <l-segment-item key="{{item.id}}" tab="{{item.name}}"></l-segment-item>
+            </block>
+        </l-segment>
+        <view class="right">
+            <s-sub-category bind:itemtap="onJumpToSpuList" categories="{{currentSubs}}" bannerImg="{{currentBannerImg}}"></s-sub-category>
+        </view>
+    </view>
+</view>

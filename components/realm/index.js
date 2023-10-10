@@ -39,6 +39,7 @@ Component({
       }else {
         this.processHasSpec(spu)
       }
+      this.triggerSpecEvent()
     }
   },
 
@@ -46,6 +47,44 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onBuyOrCart(event){
+      if (Spu.isNoSpec(this.properties.spu)){
+        this.shoppingNoSpec()
+      }else {
+        this.shoppingVarious()
+      }
+    },
+    noSpec(){
+      const spu = this.properties.spu
+      return Spu.isNoSpec(spu)
+    },
+    shoppingVarious(){
+      const intact = this.data.judger.isSkuIntact()
+      if(!intact){
+        const missKeys = this.data.judger.getMissingKeys()
+        wx.showToast({
+          icon:'none',
+          title:`请选择:${missKeys.join(', ')}`,
+          duration:3000
+        })
+        return
+      }
+      this._triggerShoppingEvent(this.data.judger.getDeterminateSku())
+    },
+    shoppingNoSpec(){
+      this._triggerShoppingEvent(this.getNoSpecSpu())
+    },
+    getNoSpecSpu(){
+      return this.properties.spu.sku_list[0]
+    },
+    _triggerShoppingEvent(sku){
+      this.triggerEvent('shopping',{
+        orderWay:this.properties.orderWay,
+        spuId:this.properties.spu.id,
+        sku:sku,
+        skuCount:this.data.currentSkuCount
+      })
+    },
     processNoSpec(spu){
       this.setData({
         noSpec:true
@@ -69,11 +108,20 @@ Component({
       this.bindFenceGroupData(fenceGroup)
     },
     triggerSpecEvent(){
-      this.triggerEvent('specchange',{
-        skuIntact:this.data.judger.isSkuIntact(),
-        currentValues:this.data.judger.getCurrentValues(),
-        missingKeys:this.data.judger.getMissingKeys()
-      })
+      const noSpec = Spu.isNoSpec(this.properties.spu)
+      if(noSpec){
+        this.triggerEvent('specchange',{
+          noSpec
+        })
+      }else {
+        this.triggerEvent('specchange',{
+          noSpec:Spu.isNoSpec(this.properties.spu),
+          skuIntact:this.data.judger.isSkuIntact(),
+          currentValues:this.data.judger.getCurrentValues(),
+          missingKeys:this.data.judger.getMissingKeys()
+        })
+      }
+
     },
     bindSpuData(){
       const spu = this.properties.spu
@@ -114,10 +162,15 @@ Component({
     },
     onSelectCount(event){
       this.data.currentSkuCount = event.detail.count
-      if(this.data.judger.isSkuIntact()){
-        const sku = this.data.judger.getDeterminateSku()
-        this.setStockStatus(sku.stock,this.data.currentSkuCount)
+      if(this.noSpec()){
+        this.setStockStatus(this.getNoSpecSpu().stock, this.data.currentSkuCount)
+      }else {
+        if(this.data.judger.isSkuIntact()){
+          const sku = this.data.judger.getDeterminateSku()
+          this.setStockStatus(sku.stock,this.data.currentSkuCount)
+        }
       }
+
     },
     isOutStock(stock,currentCount){
       return stock<currentCount
@@ -138,7 +191,7 @@ Component({
       }
       this.bindTipData()
       this.bindFenceGroupData(judge.fenceGroup)
-
+      this.triggerSpecEvent()
     }
   }
 })
