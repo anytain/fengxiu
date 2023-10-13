@@ -33,7 +33,9 @@
 <l-popup show="{{showRealm}}" contentAlign="bottom">
     <s-realm bind:shopping="onShopping" bind:specchange="onSpecChange" order-way="{{orderWay}}" spu="{{spu}}"></s-realm>
 </l-popup>
-<s-tabbar class="tabbar" bind:gotohome="onGoToHome"
+<s-tabbar class="tabbar"
+          cart-item-count="{{cartItemCount}}"
+          bind:gotohome="onGoToHome"
           bind:gotocart="onGoToCart"
           bind:addtocart="onAddToCart"
           bind:buy="onBuy">

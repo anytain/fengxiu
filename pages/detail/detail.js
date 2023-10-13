@@ -4,6 +4,8 @@ import date from "../../miniprogram_npm/lin-ui/common/async-validator/validator/
 import {ShoppingWay} from "../../core/enum";
 import {SaleExplain} from "../../models/sale-explain";
 import {getWindowHeightRpx} from "../../utils/system";
+import {Cart} from "../../models/cart";
+import {CartItem} from "../../models/cart-item";
 
 Page({
 
@@ -11,7 +13,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showRealm:false
+    showRealm:false,
+    cartItemCount:0
   },
 
   /**
@@ -28,13 +31,24 @@ Page({
       explain,
       h
     })
+    this.updateCartItemCount()
   },
   onShopping(event){
     const chooseSku = event.detail.sku
     const skuCount = event.detail.skuCount
     if (event.detail.orderWay === ShoppingWay.CART){
-
+      const cart = new Cart()
+      const cartItem = new CartItem(chooseSku,skuCount)
+      cart.addItem(cartItem)
+      this.updateCartItemCount()
     }
+  },
+  updateCartItemCount(){
+    const cart = new Cart()
+    this.setData({
+      cartItemCount:cart.getCartItemCount(),
+      showRealm:false
+    })
   },
   onGoToHome(event){
     wx.switchTab({
@@ -43,7 +57,7 @@ Page({
   },
   onGoToCart(event){
     wx.switchTab({
-      url:`/pages/cart/home`
+      url:`/pages/cart/cart`
     })
   },
   onSpecChange(event){

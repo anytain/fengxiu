@@ -3,9 +3,9 @@ page{
 }
 @font-face {
   font-family: 'sleeve';  /* Project id 4273782 */
-  src: url('//at.alicdn.com/t/c/font_4273782_5a6idtmyve4.woff2?t=1696489617016') format('woff2'),
-  url('//at.alicdn.com/t/c/font_4273782_5a6idtmyve4.woff?t=1696489617016') format('woff'),
-  url('//at.alicdn.com/t/c/font_4273782_5a6idtmyve4.ttf?t=1696489617016') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_4273782_pq5gqomvdl.woff2?t=1697204971417') format('woff2'),
+  url('//at.alicdn.com/t/c/font_4273782_pq5gqomvdl.woff?t=1697204971417') format('woff'),
+  url('//at.alicdn.com/t/c/font_4273782_pq5gqomvdl.ttf?t=1697204971417') format('truetype');
 }
 .sleeve{
   font-family: sleeve !important;
@@ -17,4 +17,11 @@ page{
 
 .l-icon-cart-k:before{
   content: "\e63e";
+}
+
+.l-icon-check:before{
+  content: "\e6ab";
+}
+.l-icon-address1:before{
+  content: "\e7e7";
 }

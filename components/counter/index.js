@@ -32,6 +32,7 @@ Component({
   methods: {
     onOverStep(event){
       const minOrMaxOut = event.detail.type
+      console.log(minOrMaxOut)
       if(minOrMaxOut == 'overflow_max'){
         wx.showToast({
           icon:"none",

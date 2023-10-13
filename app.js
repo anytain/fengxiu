@@ -1,6 +1,14 @@
 // app.js
+import {Cart} from "./models/cart";
+
 App({
   onLaunch() {
+    const cart = new Cart()
+    if(!cart.isEmpty()){
+      wx.showTabBarRedDot({
+        index:2
+      })
+    }
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
