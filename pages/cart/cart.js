@@ -1,6 +1,7 @@
 // pages/cart/cart.js
 import {Cart} from "../../models/cart";
 import {Caculator} from "../../models/caculator";
+import {ShoppingWay} from "../../core/enum";
 const cart = new Cart()
 
 Page({
@@ -21,9 +22,12 @@ Page({
    */
   async onLoad(options) {
    const cartData = await cart.getAllSkuFromServer()
-    this.setData({
-      cartItems:cartData.items
-    })
+    if(cartData){
+      this.setData({
+        cartItems:cartData.items
+      })
+    }
+
   },
 
 
@@ -105,7 +109,7 @@ Page({
       return
     }
     wx.navigateTo({
-      url: `/pages/order/order`
+      url: `/pages/order/order?way=${ShoppingWay.CART}`
     })
   }
 

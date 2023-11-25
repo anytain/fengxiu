@@ -1,3 +1,4 @@
+
 const promisic = function (func) {
     return function (params = {}) {
         return new Promise((resolve, reject) => {
@@ -16,7 +17,6 @@ const promisic = function (func) {
 
 const combination = function (arr, size) {
     var r = [];
-
     function _(t, a, n) {
         if (n === 0) {
             r[r.length] = t;
@@ -28,10 +28,12 @@ const combination = function (arr, size) {
             _(b, a.slice(i + 1), n - 1);
         }
     }
-
     _([], arr, size);
     return r;
 }
+
+// 代理模式
+
 export {
     promisic,
     combination

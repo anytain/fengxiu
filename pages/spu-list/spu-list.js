@@ -1,4 +1,3 @@
-// pages/spu-list/spu-list.js
 import {SpuPaging} from "../../models/spu-paging";
 import {SpuListType} from "../../core/enum";
 import {Theme} from "../../models/theme";
@@ -25,16 +24,16 @@ Page({
         console.log(cid, type)
         switch (type) {
             case SpuListType.ROOT_CATEGORY:
-                this.initCategoryData(cid, true)
+             await   this.initCategoryData(cid, true)
                 break
             case SpuListType.SUB_CATEGORY:
-                this.initCategoryData(cid, false)
+                await   this.initCategoryData(cid, false)
                 break
             case SpuListType.LATEST:
-                this.initLatestData()
+                await   this.initLatestData()
                 break
             case SpuListType.THEME:
-                this.initThemeData(tName)
+                await   this.initThemeData(tName)
                 break
         }
     },
@@ -68,7 +67,7 @@ Page({
     },
 
     initData(data) {
-        console.log(data)
+
         if(!data){
             return
         }
@@ -78,14 +77,16 @@ Page({
                 loading: false
             })
         }
-        // if (data.diff){
-            wx.lin.renderWaterFlow(data.items)
-        // }
+        console.log(data.items)
+        console.log(this.data.loading)
+        console.log(this.data.loadingType)
+        wx.lin.renderWaterFlow(data.items)
         if(!data.moreData){
-           this.setData({
-               loadingType: 'end'
-           })
+            this.setData({
+                loadingType: 'end'
+            })
         }
+
     },
 
     empty() {

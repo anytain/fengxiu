@@ -1,6 +1,6 @@
 const config = {
-    appkey: 'PsL1UiIe0UEZzNmc',
-    apiBaseUrl:'http://se.talelin.com/v1/'
+    //appkey: 'PsL1UiIe0UEZzNmc',
+    apiBaseUrl:'http://localhost:8081/v1/'
 }
 export {
     config

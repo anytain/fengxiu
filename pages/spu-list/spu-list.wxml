@@ -3,6 +3,5 @@
         <l-water-flow bind:item="onItemTap" generic:l-water-flow-item="s-spu-preview"></l-water-flow>
     </view>
 </l-loadmore>
-
 <s-empty-screen></s-empty-screen>
 

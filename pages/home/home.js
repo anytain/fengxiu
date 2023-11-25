@@ -6,6 +6,7 @@ import {Banner} from "../../models/banner";
 import {Category} from "../../models/category";
 import {Activity} from "../../models/activity";
 import {SpuPaging} from "../../models/spu-paging";
+import {CouponCenterType, CouponType} from "../../core/enum";
 
 Page({
 
@@ -69,6 +70,12 @@ Page({
             themeH
         })
     },
+    onGoToCoupons(event){
+      const name = event.currentTarget.dataset.aname;
+      wx.navigateTo({
+          url:`/pages/coupon/coupon?name=${name}&type=${CouponCenterType.ACTIVITY}`
+      })
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -119,6 +126,9 @@ Page({
                 loadingType:'end'
             })
         }
+        console.log(data.items);
+        console.log(this.data.loadingType);
+
     },
 
     /**

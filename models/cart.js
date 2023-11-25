@@ -14,7 +14,15 @@ class Cart {
         Cart.instance = this
         return this
     }
-
+    removeCheckedItems() {
+        const cartData = this._getCartData()
+        for (let i = 0; i < cartData.items.length; i++) {
+            if (cartData.items[i].checked) {
+                cartData.items.splice(i, 1)
+            }
+        }
+        this._refreshStorage()
+    }
     getCheckedSkuIds() {
         const cartData = this._getCartData()
         if (cartData.items.length === 0) {
