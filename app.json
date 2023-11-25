@@ -5,12 +5,10 @@
     "pages/cart/cart",
     "pages/category/category",
     "pages/my/my",
-    "pages/search",
     "pages/search/search",
     "pages/spu-list/spu-list",
     "pages/order/order",
     "pages/coupon/coupon",
-    "pages/pay-success",
     "pages/my-order/my-order",
     "pages/my-coupon/my-coupon",
     "pages/order-detail/order-detail"
