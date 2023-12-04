@@ -1,0 +1,26 @@
+<view class="container">
+    <view class="icons">
+        <view bind:tap="onGoToWoHome" class="icon-home">
+            <l-icon size="46" name="home" l-class="sleeve"></l-icon>
+            <text>首页</text>
+        </view>
+        <view class="icon-zf">
+            <l-button special openType="share">
+                <view class="inner">
+                    <l-icon name="share-k" size="46" l-class="sleeve"></l-icon>
+                    <text>转发</text>
+                </view>
+            </l-button>
+        </view>
+        <view class="icon-bm">
+            <l-button
+                    bg-color="#3EE88B"  l-class="icon-bm-child"
+                    open-type="getUserInfo"
+                    bind:getuserinfo="onGoToWoPay"
+                    height="62"
+                    width="180">立即报名
+            </l-button>
+        </view>
+
+    </view>
+</view>

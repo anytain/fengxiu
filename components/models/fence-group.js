@@ -47,7 +47,6 @@ class FenceGroup {
             fences.push(fence)
         })
         this.fences = fences
-        console.log(fences)
     }
     hasSketchFence(){
         return this.spu.sketch_spec_id?true:false

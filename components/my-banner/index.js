@@ -40,6 +40,7 @@ Component({
      */
     methods: {
         async onAuthUserInfo(event) {
+            console.log("222")
             console.log(event.detail)
             console.log(event.detail.userInfo)
             if (event.detail.userInfo) {

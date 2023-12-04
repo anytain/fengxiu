@@ -40,7 +40,6 @@ class Judger{
 
     getDeterminateSku(){
         const code = this.skuPending.getSkuCode()
-        console.log(code)
         return this.fenceGroup.getSku(code)
     }
     _initSelectedCell(){

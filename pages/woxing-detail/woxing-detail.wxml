@@ -1,0 +1,96 @@
+<scroll-view style="height:{{h}}rpx;" scroll-y>
+    <l-loadmore  show
+                 endText="-- 蜗到底啦 --"
+                 type="{{loadingType}}">
+        <view slot="content">
+            <view class="container">
+                <swiper class="swiper"
+                        indicator-dots="true"
+                        indicator-active-color="#157658"
+                        autoplay
+                        circular >
+                    <block wx:for="{{hdItems}}" wx:key="index">
+                        <swiper-item>
+                            <image class="swiper" src="{{item.img}}"></image>
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <view class="container-title">
+                    <view class="container-info">
+                        <view>
+                            <text class="weight-txt">{{singleHd.place_name}}</text>
+                        </view>
+                        <view class="container-price">
+                            <view class="image-price">
+                                <image  src="/imgs/sleeve/price.png"></image>
+                            </view>
+                            <view class="text-price">
+                                <text class="price-unit">￥</text>
+                                <text class="price-value">{{singleHd.price}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="text-second">
+                        <text class="light-txt">{{singleHd.title}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="container-base">
+                <view class="container-base-child">
+                    <view class="base-time">
+                        <image src="/imgs/sleeve/time.png"></image>
+                        <text>{{singleHd.activity_start_time}} 到 {{singleHd.activity_end_time}}</text>
+                    </view>
+                    <view class="hr"></view>
+                    <view class="base-address">
+                        <image src="/imgs/sleeve/address.png"></image>
+                        <text>{{singleHd.address}}</text>
+                    </view>
+                    <view class="hr"></view>
+                    <view class="base-phone">
+                        <image src="/imgs/sleeve/tel.png"></image>
+                        <text>{{singleHd.tel}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="container-notice">
+                <view class="notice-img">
+                    <image src="/imgs/sleeve/notice.png"></image>
+                    <text>报名须知</text>
+                </view>
+                <view class="hr-notice"></view>
+                <view class="notice-doc">
+                    <text>{{singleHd.notice}}</text>
+                </view>
+                <view class="notice-attention">
+                    <text>注: {{singleHd.attention}}</text>
+                </view>
+            </view>
+            <view class="container-photo">
+                <view class="photo-img">
+                    <image src="/imgs/sleeve/notice.png"></image>
+                    <text>活动详情</text>
+                </view>
+                <view class="hr-notice"></view>
+                <view class="detail-img">
+                    <block wx:for="{{hdItems}}" wx:key="index">
+                        <image wx:if="{{item.order_number<=2}}" class="swiper-photo" src="{{item.img}}"></image>
+                    </block>
+                    <view class="see-more">
+                        <view class="see-text">
+                            <text>查看更多</text>
+                        </view>
+
+                    </view>
+                </view>
+
+            </view>
+        </view>
+    </l-loadmore>
+</scroll-view>
+
+<s-tabbar-wo class="tab-wo"
+             bind:gotowohome="onGoToWoHome"
+             bind:gotowopay="onGoToWoPay">
+</s-tabbar-wo>
+

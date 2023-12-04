@@ -1,0 +1,65 @@
+<view class="container">
+    <view class="container-user">
+        <view class="user-nick">
+            <text>昵称 </text>
+            <text>{{nc}}</text>
+        </view>
+        <view class="hr-notice"></view>
+        <view class="user-phone">
+            <l-input label="联系方式" class="form-item" bind:linblur="onPhone"
+                     placeholder="请您务必输入正确的联系电话"
+            />
+        </view>
+    </view>
+    <view class="container-price">
+        <view class="price-num">
+            <text>数量</text>
+            <s-counter bind:linout="onOutNumber"
+                       max="{{wstock}}"
+                       count="{{wcount}}"
+                    bind:lintap="onSelectCount">
+
+            </s-counter>
+        </view>
+        <view class="hr-notice"></view>
+        <view class="price-single">
+            <text>单价</text>
+            <l-price value="{{wprice}}">
+                valueSize="28"
+                autofix>
+            </l-price>
+        </view>
+        <view class="hr-notice"></view>
+        <view class="price-count">
+            <text>小计</text>
+            <l-price value="{{totalPrice}}">
+                valueSize="28"
+                autofix>
+            </l-price>
+        </view>
+    </view>
+    <view class="container-remark">
+        <view>
+            <l-textarea indicator="{{true}}" bind:lininput="onRemark" maxlength="50" placeholder="备注给蜗..."  />
+        </view>
+    </view>
+
+    <view class="container-pay">
+        <view class="pay_text">
+            <text>合计:</text>
+            <text>￥{{totalPrice}}</text>
+        </view>
+        <view class="pay-button">
+            <l-button
+                    disabled="{{submitBtnDisable}}"
+                    bg-color="#3EE88B"
+                    l-class="icon-bm-child"
+                    bind:tap="onWoPay"
+                    height="62"
+                    width="180">立即支付
+            </l-button>
+        </view>
+
+    </view>
+</view>
+

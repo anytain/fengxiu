@@ -1,0 +1,145 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-user {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+    background: #FFFFFF;
+    font-family: PingFangSC, PingFang SC, sans-serif;
+    font-weight: 400;
+
+}
+
+.user-nick {
+    margin: 30rpx 24rpx;
+    font-size: 28rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.user-nick > text:first-child {
+    color: #999999;
+}
+
+.user-nick > text:nth-child(2) {
+    position: absolute;
+    left: 200rpx;
+}
+
+.user-phone {
+    font-size: 28rpx;
+}
+
+.form-item text {
+    color: #999999 !important;
+}
+
+.hr-notice {
+    margin: 10rpx 10rpx;
+    height: 1rpx;
+    background: #E6E6E6;
+}
+
+.container-price {
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    width: 100%;
+    font-family: PingFangSC, PingFang SC, sans-serif;
+    font-weight: 400;
+    font-size: 28rpx;
+}
+
+.price-num {
+    margin: 30rpx 24rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price-num > text:first-child {
+    color: #999999;
+}
+
+.price-single {
+    margin: 30rpx 24rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price-single > text:first-child {
+    color: #999999;
+}
+
+.price-count {
+    margin: 30rpx 24rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price-count > text:first-child {
+    color: #999999;
+}
+
+.container-remark {
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    width: 100%;
+    font-family: PingFangSC, PingFang SC, sans-serif;
+    font-weight: 400;
+}
+
+.container-pay {
+    background: #FFFFFF;
+    width: 100%;
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.pay_text{
+    margin: 30rpx 24rpx;
+}
+.pay_text>text:first-child{
+    width: 64rpx;
+    height: 2040r;
+    font-size: 1428r;
+    font-family: PingFangSC, PingFang SC,sans-serif;
+    font-weight: 400;
+    color: #000000;
+}
+.pay_text>text:nth-child(2){
+    color: #F20A0A;
+    margin-left: 10rpx;
+    width: 150rpx;
+    height: 56rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC, PingFang SC,sans-serif;
+    font-weight: 500;
+}
+.pay-button{
+    margin: 30rpx 24rpx;
+
+}
+
+.icon-bm-child{
+    font-size:28rpx;
+    color: #ffffff;
+    border-radius: 60rpx;
+}

@@ -17,7 +17,13 @@ class Payment{
         })
         return  serverParams
     }
-
+    static async getWoPayParams(orderId) {
+        const serverParams = await Http.request({
+            url:`payment/pay/woOrder/${orderId}`,
+            method:'POST'
+        })
+        return  serverParams
+    }
 
 
 }

@@ -1,8 +1,28 @@
 <view class="inner-container">
     <view class="title-row">
-        <text>我的订单</text>
+     <!--  <text bind:tap="onMy">商城订单</text>
+        <text bind:tap="onWo">活动订单</text>-->
+        <view>
+            <l-segment class="segment"
+                       l-class="l-segment"
+                       active-color="#157658"
+                       l-class-active="active"
+                       l-class-line="line" has-line="{{false}}">
+                <l-segment-item  key="one" slot="one">
+                    <view bind:tap="onMy" class="item-order">
+                        <text>商城订单</text>
+                    </view>
+                </l-segment-item>
+                <l-segment-item  key="two" slot="two">
+                    <view bind:tap="onWo" class="item-order">
+                        <text>活动订单</text>
+                    </view>
+                </l-segment-item>
+            </l-segment>
+        </view>
+
     </view>
-    <view class="icon-row">
+    <view class="icon-row"  wx:if="{{showSc}}">
         <view data-key="1" bind:tap="onGotoMyOrder" class="icon-item">
             <l-badge show="{{unpaidCount!==0}}" shape="circle" max-count="99" value="{{unpaidCount}}">
                 <l-icon name="unpaid" l-class="sleeve"></l-icon>
@@ -30,4 +50,17 @@
             <text>已取消</text>
         </view>
     </view>
+
+    <view class="icon-row" wx:else>
+        <view data-key="1" bind:tap="onGotoMyOrder" class="icon-item">
+            <l-badge show="{{unpaidCount!==0}}" shape="circle" max-count="99" value="{{unpaidCount}}">
+                <l-icon name="unpaid" l-class="sleeve"></l-icon>
+            </l-badge>
+            <text>待支付</text>
+        </view>
+
+    </view>
 </view>
+
+
+

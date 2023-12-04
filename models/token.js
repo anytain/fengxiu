@@ -29,7 +29,6 @@ class Token {
         // code
         const r = await wx.login()
         const code = r.code
-        console.log("222")
         const res = await promisic(wx.request)({
             url: this.tokenUrl,
             method: 'POST',

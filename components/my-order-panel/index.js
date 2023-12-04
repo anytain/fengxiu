@@ -13,7 +13,8 @@ Component({
     data: {
         unpaidCount: 0,
         paidCount: 0,
-        deliveredCount: 0
+        deliveredCount: 0,
+        showSc: true
     },
 
     lifetimes: {
@@ -42,6 +43,17 @@ Component({
             const key = event.currentTarget.dataset.key
             wx.navigateTo({
                 url: `/pages/my-order/my-order?key=${key}`
+            })
+        },
+        onMy(){
+            this.setData({
+                showSc: true
+            })
+        },
+        onWo(){
+            console.log(111)
+            this.setData({
+                showSc: false
             })
         }
     }

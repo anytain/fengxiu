@@ -7,6 +7,7 @@ import {Category} from "../../models/category";
 import {Activity} from "../../models/activity";
 import {SpuPaging} from "../../models/spu-paging";
 import {CouponCenterType, CouponType} from "../../core/enum";
+import {getWindowHeightRpx} from "../../utils/system";
 
 Page({
 
@@ -29,6 +30,12 @@ Page({
     async onLoad(options) {
         this.initAllData()
         this.initBottomSpuList()
+        const windowHeight = await getWindowHeightRpx()
+        const h = windowHeight - 100
+        this.setData({
+            h
+        })
+        console.log(h)
     },
     async initBottomSpuList(){
         const paging = await SpuPaging.getLatestPaging()

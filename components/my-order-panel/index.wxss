@@ -28,12 +28,25 @@
     justify-content: space-between;
     align-items: center;
 }
+.l-segment{
+    background-color: #ffffff;
+
+
+}
+.item-order text{
+   margin-right: 42rpx;
+    font-size: 28rpx !important;
+}
+
 
 .title-row{
     width: 600rpx;
     display:flex;
     flex-direction:row;
     justify-content: flex-start;
+}
+.title-row >text:nth-child(2){
+    margin-left: 30rpx;
 }
 
 .icon-row{

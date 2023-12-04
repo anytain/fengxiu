@@ -1,0 +1,46 @@
+
+.hot-container{
+    margin-top: 20rpx;
+    width: 100%;
+    padding: 24rpx 0;
+    background: #FFFFFF;
+    border-radius: 16rpx;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    position: relative;
+    top: 320rpx;
+}
+.hot-scroll{
+    width:530rpx;
+    white-space: nowrap;
+}
+.hot-title{
+    width: 88rpx;
+    height: 44rpx;
+    margin: 0 28rpx;
+}
+.hot-tag{
+    border-color: azure;
+    display: flex;
+    align-items: center;
+}
+.hot-child{
+    margin-right: 28rpx;
+    display: flex;
+    align-items: center;
+}
+.hot-tag image{
+    width: 42rpx;
+    height: 46rpx;
+    margin-right: 10rpx;
+}
+.hot-tag >text{
+    width: 94rpx;
+    height: 46rpx;
+    color: #333333;
+    line-height: 46rpx;
+    letter-spacing: 2rpx;
+    font-size: 28rpx;
+    font-weight: 500;
+}

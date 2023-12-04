@@ -1,0 +1,22 @@
+<view>
+    <view>
+        <image src="{{themeS.title_img}}" class="top-title-img"></image>
+        <image src="{{themeS.entrance_img}}" class="top-theme"></image>
+    </view>
+    <view class="inner-container">
+        <view>
+            <image class="left" src="{{categoryH.img}}"></image>
+        </view>
+        <view class="right-container">
+            <image class="right-size" src="{{categoryQ.img}}"></image>
+            <image class="right-size" src="{{categoryL.img}}"></image>
+        </view>
+        <view class="right-container">
+            <image class="right-size" src="{{categoryX.img}}"></image>
+            <image class="right-size" src="{{categoryW.img}}"></image>
+        </view>
+    </view>
+    <s-woxing-hot hot="{{subs}}"></s-woxing-hot>
+    <s-woxing-hd hd="{{hd}}"></s-woxing-hd>
+</view>
+

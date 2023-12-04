@@ -31,10 +31,16 @@ const combination = function (arr, size) {
     _([], arr, size);
     return r;
 }
+const phoneCheck = function (number){
+    const reg = /^1[3456789]\d{9}$/;
+    return reg.test(number);
+
+}
 
 // 代理模式
 
 export {
     promisic,
-    combination
+    combination,
+    phoneCheck
 }

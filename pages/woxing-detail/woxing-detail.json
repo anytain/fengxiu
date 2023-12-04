@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "s-tabbar-wo": "/components/tab-wo/index"
+  }
+}

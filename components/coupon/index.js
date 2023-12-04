@@ -60,7 +60,6 @@ Component({
                 return
             }
             if (msg.code === 0) {
-                console.log(123123)
                 this.setUserCollected()
                 showToast('领取成功，在"我的优惠券"中查看')
             }

@@ -1,0 +1,13 @@
+<view class="hot-container">
+    <image class="hot-title" src="/imgs/sleeve/hot.png"></image>
+    <scroll-view class="hot-scroll" scroll-x>
+        <view class="hot-tag">
+            <block wx:for="{{hot}}" wx:key="index">
+                <view class="hot-child">
+                    <image src="{{item.img}}"></image>
+                    <text>{{item.name}}</text>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</view>

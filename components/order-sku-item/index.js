@@ -19,11 +19,13 @@ Component({
 
   observers:{
     'orderItem':function (orderItem) {
-      console.log(orderItem)
       const specValues = orderItem.spec_values
-      this.setData({
-        specValuesText:specValues?parseSpecValueArray(specValues):parseSpecValue(orderItem.specs)
-      })
+      if(specValues.length>0){
+        this.setData({
+          specValuesText:specValues?parseSpecValueArray(specValues):parseSpecValue(orderItem.specs)
+        })
+      }
+
     }
   },
 

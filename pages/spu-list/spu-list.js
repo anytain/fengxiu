@@ -77,9 +77,7 @@ Page({
                 loading: false
             })
         }
-        console.log(data.items)
-        console.log(this.data.loading)
-        console.log(this.data.loadingType)
+
         wx.lin.renderWaterFlow(data.items)
         if(!data.moreData){
             this.setData({

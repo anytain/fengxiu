@@ -1,0 +1,93 @@
+.sleeve{
+    font-family: sleeve !important;
+    color:#157658 !important;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-direction:row;
+    background-color: #ffffff;
+}
+.buy{
+    background-color: #157658;
+    width: 265rpx;
+    /*height: 100%;*/
+}
+.cart{
+    background-color: #333333;
+    width: 260rpx;
+   /* height: 100%;*/
+}
+.btn-font{
+    color: #ffffff;
+    font-size: 32rpx;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons{
+    box-sizing: border-box;
+    padding-left: 16rpx;
+    padding-right: 22rpx;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-around;
+    width: 230rpx;
+    height: 100%;
+    color: #999999;
+}
+.icons image{
+    width: 262rpx;
+    height: 64rpx;
+    background: linear-gradient(180deg, #3EE88B 0%, #00BC6F 100%);
+    border-radius: 32rpx;
+    position: absolute;
+    left: 438rpx;
+}
+.icons > view{
+    width: 50%;
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+.icon-home{
+    margin-left: 24rpx;
+}
+
+.icon-zf{
+    margin-left: 78rpx;
+}
+
+.icons text{
+    font-size: 20rpx;
+}
+
+.inner{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    margin-left: 20rpx;
+}
+.inner text{
+    font-size: 22rpx;
+    color: #157658;
+}
+
+.icon-bm{
+
+}
+.icon-bm-child{
+    position: absolute;
+    top:8rpx;
+    right: 40rpx;
+    bottom: 18rpx;
+    font-size:28rpx;
+    color: #ffffff;
+    border-radius: 60rpx;
+}

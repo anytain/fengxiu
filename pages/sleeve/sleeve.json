@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "s-woxing-hot": "/components/woxing-hot/index"
+  },
+  "navigationStyle": "custom"
+}

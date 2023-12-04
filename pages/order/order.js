@@ -21,13 +21,10 @@ Page({
         totalPrice: 0,
         discountMoney: 0,
         submitBtnDisable: false,
-
         address: null,
-
         currentCouponId: null,
         order: null,
         isOk: true,
-
         orderFail: false,
         orderFailMsg: '',
 

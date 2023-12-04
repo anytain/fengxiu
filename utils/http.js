@@ -72,7 +72,6 @@ class Http {
 
     static async _refetch(data) {
         const token = new Token()
-        console.log("111")
         await token.getTokenFromServer()
 
         data.refetch = false

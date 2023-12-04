@@ -1,0 +1,27 @@
+<block wx:for="{{hd}}" wx:key="index">
+    <view class="sleeve-container">
+        <view class="sleeve-hd">
+            <view>
+                <image class="sleeve-hd-img" src="{{item.img}}"></image>
+            </view>
+            <view class="sleeve-hd-container">
+                <text class="weight-txt">{{item.name}}</text>
+                <view class="sleeve-hd-right">
+                    <image src="/imgs/sleeve/time.png"></image>
+                    <text class="light-txt">{{item.time_range}}</text>
+                </view>
+                <view class="sleeve-hd-right">
+                    <image src="/imgs/sleeve/address.png"></image>
+                    <text class="light-txt">{{item.address}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="hr"></view>
+        <view class="sleeve-bm">
+            <image src="/imgs/sleeve/bm.png" data-hid="{{item.id}}" bind:tap="onGoJoinDetail"></image>
+        </view>
+    </view>
+</block>
+
+
+

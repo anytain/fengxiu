@@ -16,9 +16,11 @@ class OrderDetail {
     statusText = ''
     discountPrice = 0
     createTime = null
+    createTimeTemp=null
     constructor(orderDetail) {
         Object.assign(this, orderDetail)
-        this.createTime = orderDetail.placed_time
+        this.createTimeTemp = orderDetail.placed_time
+        this.createTime = getSlashYMDHMS(orderDetail.placed_time)
         this.correctOrderStatus()
         this.calDiscountPrice()
 
@@ -46,16 +48,13 @@ class OrderDetail {
 
     correctOrderStatus() {
         if (this.status === OrderStatus.UNPAID) {
-            console.log(333)
-            console.log(this.createTime)
             const currentTimestamp = new Date().getTime();
-            const createTimestamp = this.createTime;
+            const createTimestamp = this.createTimeTemp;
             const periodMill = this.period * 1000;
             if ((createTimestamp + periodMill) > currentTimestamp) {
                 const mill = (createTimestamp + periodMill) - currentTimestamp
                 this.leftPeriod = Math.round(mill / 1000)
             } else {
-                console.log(222)
                 this.status = OrderStatus.CANCELED
             }
         }
